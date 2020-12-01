@@ -51,7 +51,7 @@
       "request": {
         "method": "GET",
         "header": [],
-        "url": "{{url}}/geta"
+        "url": "{{url}}/get"
       },
       "response": []
     }
