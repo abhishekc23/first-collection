@@ -38,11 +38,6 @@
           "script": {
             "id": "e3f10a32-3668-4ca7-88e4-6e612770d5d1",
             "exec": [
-              "var previousRequest = JSON.parse(globals.previousRequest),",
-              "    webhookRequestData = previousRequest.data;",
-              "",
-              "// webhookRequestData contains the data sent to your webhook.",
-              "console.log(webhookRequestData);",
               ""
             ],
             "type": "text/javascript"
