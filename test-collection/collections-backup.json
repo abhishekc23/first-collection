@@ -67,6 +67,18 @@
     },
     {
       "name": "Send to Slack",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "1d2d7cf3-dc20-4ecc-a1d7-33deb7d69221",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
       "_postman_id": "ba5925f4-1948-4cd2-a9fc-374d6096d8ea",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
