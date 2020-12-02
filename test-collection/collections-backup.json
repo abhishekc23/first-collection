@@ -18,7 +18,7 @@
               "",
               "// webhookRequestData contains the data sent to your webhook.",
               "console.log(webhookRequestData);",
-              "pm.variables.set('respone_url', webhookRequestData.response_url)",
+              "pm.variables.set('response_url', webhookRequestData.response_url)",
               ""
             ],
             "type": "text/javascript"
@@ -88,7 +88,7 @@
             }
           }
         },
-        "url": "https://hooks.slack.com/services/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"
+        "url": "{{response_url}}"
       },
       "response": []
     }
