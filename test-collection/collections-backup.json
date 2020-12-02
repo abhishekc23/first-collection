@@ -46,31 +46,6 @@
       "response": []
     },
     {
-      "name": "second request",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "id": "e3f10a32-3668-4ca7-88e4-6e612770d5d1",
-            "exec": [
-              ""
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "_postman_id": "08c1c790-973b-42bd-aa12-586dbf898fc9",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "{{url}}/get"
-      },
-      "response": []
-    },
-    {
       "name": "Send to Slack",
       "_postman_id": "ba5925f4-1948-4cd2-a9fc-374d6096d8ea",
       "protocolProfileBehavior": {
