@@ -6,7 +6,7 @@
   },
   "item": [
     {
-      "name": "first request ever",
+      "name": "Incomging request from slack",
       "event": [
         {
           "listen": "prerequest",
@@ -20,6 +20,7 @@
               "console.log(webhookRequestData);",
               "pm.variables.set('response_url', webhookRequestData.response_url)",
               "pm.variables.set('session', webhookRequestData.user_id);",
+              "pm.variables.set('utterance', webhookRequestData.text);",
               ""
             ],
             "type": "text/javascript"
@@ -55,7 +56,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"queryInput\": {\n        \"text\": {\n            \"text\": \"Can you tell me about postman?\",\n            \"languageCode\": \"en\"\n        }\n    },\n    \"queryParams\": {\n        \"timeZone\": \"Asia/Calcutta\"\n    }\n}\n",
+          "raw": "{\n    \"queryInput\": {\n        \"text\": {\n            \"text\": \"{{utterance}}\",\n            \"languageCode\": \"en\"\n        }\n    },\n    \"queryParams\": {\n        \"timeZone\": \"Asia/Calcutta\"\n    }\n}\n",
           "options": {
             "raw": {
               "language": "json"
