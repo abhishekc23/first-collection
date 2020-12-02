@@ -62,9 +62,18 @@
         "disableBodyPruning": true
       },
       "request": {
-        "method": "GET",
+        "method": "POST",
         "header": [],
-        "url": null
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\": \"{{response}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://hooks.slack.com/services/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"
       },
       "response": []
     }
