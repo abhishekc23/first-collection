@@ -42,10 +42,16 @@
       },
       "request": {
         "method": "POST",
-        "header": [],
+        "header": [
+          {
+            "key": "authorization",
+            "value": "Bearer ya29.a0AfH6SMBy7f4TFHzwrpFJsMIJWT0MSPLe5RQ_AYlRu8hwx7xYTvV4PtXcNKxIzWhzmdS_a7fG6D6sVjHz2G88ODflVL5UO7NwuLpG7ecfR0hFSStIwtgt0Lg9MSLsLPCOG1G5tWRutJX5M3fVRlhS_APxQOyhZaHCKfet4JOuCkbqR7qzJT_wp_r4D7r1d2nv_zCfUY8ncDaAzU_utIQGo_l7jxRvq1xVPoJJBubJzMljkJXOhPT8RYIyTX_L4w",
+            "type": "text"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"text\": \"Hello\"\n}",
+          "raw": "{\n    \"queryInput\": {\n        \"text\": {\n            \"text\": \"Can you tell me about postman?\",\n            \"languageCode\": \"en\"\n        }\n    },\n    \"queryParams\": {\n        \"timeZone\": \"Asia/Calcutta\"\n    }\n}\n",
           "options": {
             "raw": {
               "language": "json"
