@@ -73,7 +73,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"text\": \"{{response}}\"\n}",
+          "raw": "{\n    \"text\": \"{{df_response}}\"\n}",
           "options": {
             "raw": {
               "language": "json"
