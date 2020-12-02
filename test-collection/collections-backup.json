@@ -30,6 +30,9 @@
           "script": {
             "id": "bd5e607a-9fb2-4bcc-b904-399f25e9a1ae",
             "exec": [
+              "let res = pm.response.json();",
+              "",
+              "pm.variables.set('df_response', res.queryResult.fulfillmentText);",
               ""
             ],
             "type": "text/javascript"
