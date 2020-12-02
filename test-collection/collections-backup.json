@@ -54,6 +54,19 @@
         "url": "{{url}}/geta"
       },
       "response": []
+    },
+    {
+      "name": "New Request",
+      "_postman_id": "ba5925f4-1948-4cd2-a9fc-374d6096d8ea",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": null
+      },
+      "response": []
     }
   ]
 }
