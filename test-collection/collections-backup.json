@@ -18,6 +18,7 @@
               "",
               "// webhookRequestData contains the data sent to your webhook.",
               "console.log(webhookRequestData);",
+              "pm.variables.set('respone_url', webhookRequestData.response_url)",
               ""
             ],
             "type": "text/javascript"
@@ -29,9 +30,18 @@
         "disableBodyPruning": true
       },
       "request": {
-        "method": "GET",
+        "method": "POST",
         "header": [],
-        "url": "{{url}}/get"
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\": \"Hello\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{response_url}}"
       },
       "response": []
     },
