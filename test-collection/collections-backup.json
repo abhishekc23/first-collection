@@ -50,7 +50,7 @@
         "header": [
           {
             "key": "authorization",
-            "value": "Bearer ya29.a0AfH6SMAdq3DbPMk-V1slNXtVDaFpnYIqNkUEI3v-PUipa3s2JfE0shIqSXy3i_C-GQznbPs5pr8tVKV7K4-gXAhhIHs0YcCBvz6xwvfwnOXHkmr0D5qU_25T9byW0B_FyhZuMV_Hl4vDJf4Vxa5HVZ2b-fowFWpg7Ax416n0KH4hAEgGhNfDbO8vq34ycQeRpqAxh19lZP0HUt-cMjA0z9SWqnWLPb93r7aWAolscW2Azwmgc9_oONJ3bnrsfA",
+            "value": "{{access_token}}",
             "type": "text"
           }
         ],
