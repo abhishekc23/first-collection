@@ -56,7 +56,7 @@
       "request": {
         "method": "GET",
         "header": [],
-        "url": "{{url}}/geta"
+        "url": "{{url}}/get"
       },
       "response": []
     },
@@ -78,7 +78,7 @@
             }
           }
         },
-        "url": "https://hooks.slack.com/services/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"
+        "url": "https://hooks.slack.com/services/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"
       },
       "response": []
     }
