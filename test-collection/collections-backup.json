@@ -56,7 +56,7 @@
       "response": []
     },
     {
-      "name": "New Request",
+      "name": "Send to Slack",
       "_postman_id": "ba5925f4-1948-4cd2-a9fc-374d6096d8ea",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
