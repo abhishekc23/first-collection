@@ -19,6 +19,17 @@
               "// webhookRequestData contains the data sent to your webhook.",
               "console.log(webhookRequestData);",
               "pm.variables.set('response_url', webhookRequestData.response_url)",
+              "pm.variables.set('session', webhookRequestData.user_id);",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "bd5e607a-9fb2-4bcc-b904-399f25e9a1ae",
+            "exec": [
               ""
             ],
             "type": "text/javascript"
@@ -41,7 +52,7 @@
             }
           }
         },
-        "url": "{{response_url}}"
+        "url": "https://dialogflow.googleapis.com/v2/projects/{{df_agent}}/agent/sessions/{{session}}:detectIntent"
       },
       "response": []
     },
