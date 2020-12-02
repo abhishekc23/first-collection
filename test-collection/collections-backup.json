@@ -33,6 +33,7 @@
               "let res = pm.response.json();",
               "",
               "pm.variables.set('df_response', res.queryResult.fulfillmentText);",
+              "console.log(res.queryResult.fulfillmentText);",
               ""
             ],
             "type": "text/javascript"
