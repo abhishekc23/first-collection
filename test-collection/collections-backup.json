@@ -50,7 +50,7 @@
         "header": [
           {
             "key": "authorization",
-            "value": "{{access_token}}",
+            "value": "Bearer {{access_token}}",
             "type": "text"
           }
         ],
