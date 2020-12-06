@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "5e245d7a-9db3-476e-a975-319216608979",
     "name": "Help bot-First Collection",
-    "description": "## Help Bot",
+    "description": "## Help Bot\n\n1. Setting up Slack app\n\n2. Setting up the Dialogflow bot\n\n3. Setting up the Postman collection and webhook\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
