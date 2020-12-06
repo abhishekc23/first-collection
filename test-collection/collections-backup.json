@@ -2,6 +2,7 @@
   "info": {
     "_postman_id": "5e245d7a-9db3-476e-a975-319216608979",
     "name": "Help bot-First Collection",
+    "description": "## Help Bot",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
