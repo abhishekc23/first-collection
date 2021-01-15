@@ -1,20 +1,104 @@
 {
   "info": {
-    "_postman_id": "83e3a4d3-04de-416e-80e7-7e026a3c957d",
-    "name": "console test",
+    "_postman_id": "5e245d7a-9db3-476e-a975-319216608979",
+    "name": "Help bot-First Collection",
+    "description": "## Help Bot\n\n### Setting up Slack app\n\n### Setting up the Dialogflow bot\n\n### Setting up the Postman collection and webhook\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
     {
-      "name": "New Request",
-      "_postman_id": "ec7b3e50-f706-491d-bb23-645b709b6dcf",
+      "name": "Incomging request from slack",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "63799651-1d19-4171-8813-b5a12fb933c5",
+            "exec": [
+              "var previousRequest = JSON.parse(globals.previousRequest),",
+              "    webhookRequestData = previousRequest.data;",
+              "",
+              "// webhookRequestData contains the data sent to your webhook.",
+              "console.log(webhookRequestData);",
+              "pm.variables.set('response_url', webhookRequestData.response_url)",
+              "pm.variables.set('session', webhookRequestData.user_id);",
+              "pm.variables.set('utterance', webhookRequestData.text);",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "bd5e607a-9fb2-4bcc-b904-399f25e9a1ae",
+            "exec": [
+              "let res = pm.response.json();",
+              "",
+              "pm.variables.set('df_response', res.queryResult.fulfillmentText);",
+              "console.log(res.queryResult.fulfillmentText);",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "370f05f6-2ec2-40f4-9c00-4638fb81742e",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
       "request": {
-        "method": "GET",
+        "method": "POST",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "Bearer {{access_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"queryInput\": {\n        \"text\": {\n            \"text\": \"{{utterance}}\",\n            \"languageCode\": \"en\"\n        }\n    },\n    \"queryParams\": {\n        \"timeZone\": \"Asia/Calcutta\"\n    }\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://dialogflow.googleapis.com/v2/projects/{{df_agent}}/agent/sessions/{{session}}:detectIntent"
+      },
+      "response": []
+    },
+    {
+      "name": "Send to Slack",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "1d2d7cf3-dc20-4ecc-a1d7-33deb7d69221",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "ba5925f4-1948-4cd2-a9fc-374d6096d8ea",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
         "header": [],
-        "url": "postman-echo.com/get"
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\": \"{{df_response}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{response_url}}"
       },
       "response": []
     }
