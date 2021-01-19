@@ -1,158 +1,31 @@
 {
   "info": {
-    "_postman_id": "a8cdb02f-530f-45a2-99f3-7be57bc1b034",
-    "name": "Hackday1",
+    "_postman_id": "f5247f04-d06a-4eba-88d6-35f9326d1632",
+    "name": "My_first_collection_backup",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
     {
-      "name": "Send to slack",
+      "name": "first request ever",
       "event": [
         {
           "listen": "prerequest",
           "script": {
-            "id": "0a9645e8-0929-4e1c-a7a6-828c935a6cc9",
+            "id": "a94c7f22-4615-4583-8eed-cec77fa91477",
             "exec": [
               "var previousRequest = JSON.parse(globals.previousRequest),",
               "    webhookRequestData = previousRequest.data;",
               "",
-              "function buildResultBlock(title, attachmentValues) {",
-              "    const body = {",
-              "        type: 'mrkdwn',",
-              "        text: `*${title}*\\n${attachmentValues[title]}`",
-              "    }",
-              "    return body;",
-              "}",
-              "",
-              "const MOCK_RESPONSE_VALUES = {",
-              "    good: {",
-              "        'Status': 'Success',",
-              "        'Tests Passed': 10 + ' of ' + 10,",
-              "        'Total Response Time': '70 ms',",
-              "        'Total Requests': 10,",
-              "        'Errors': 0,",
-              "        'Warnings': 0,",
-              "        'messagev1': `Monitor <https://www.google.com|Monitor1> on Collection <https://www.google.com|My_first_collection> with 3 requests and 0 tests ran successfully`,",
-              "        'messagev2': `Monitor <https://www.google.com|Monitor1> on Collection <https://www.google.com|My_first_collection> with 3 requests and 0 tests ran successfully :white_check_mark:`",
-              "    },",
-              "    danger: {",
-              "        'Status': 'Error',",
-              "        'Tests Passed': 9 + ' of ' + 10,",
-              "        'Total Response Time': '1023 ms',",
-              "        'Total Requests': 10,",
-              "        'Errors': 1,",
-              "        'Warnings': 2,",
-              "        'messagev1': `Monitor <https://www.google.com|Monitor1> on Collection <https://www.google.com|My_first_collection> with 3 requests and 0 tests ran successfully`,",
-              "        'messagev2': `Monitor <https://www.google.com|Monitor1> on Collection <https://www.google.com|My_first_collection> with 3 requests and 0 tests ran successfully :red_circle:`",
-              "    }",
-              "}",
-              "",
-              "function getFailedTests(type='good') {",
-              "    return [];",
-              "}",
-              "",
-              "function getResultHeaderBlock(type='good') {",
-              "    return {",
-              "        type: 'section',",
-              "        text: {",
-              "            type: 'mrkdwn',",
-              "            text: MOCK_RESPONSE_VALUES[type].messagev2",
-              "        }",
-              "    }",
-              "}",
-              "",
-              "function getResultBodyBlock(type='good') {",
-              "    const bodyBlocks = {",
-              "        type: 'section',",
-              "        fields: [",
-              "            buildResultBlock('Status', MOCK_RESPONSE_VALUES[type]),",
-              "            buildResultBlock('Tests Passed', MOCK_RESPONSE_VALUES[type]),",
-              "            buildResultBlock('Total Response Time', MOCK_RESPONSE_VALUES[type]),",
-              "            buildResultBlock('Total Requests', MOCK_RESPONSE_VALUES[type]),",
-              "            buildResultBlock('Errors', MOCK_RESPONSE_VALUES[type]),",
-              "            buildResultBlock('Warnings', MOCK_RESPONSE_VALUES[type]),",
-              "        ]",
-              "    };",
-              "    return bodyBlocks;",
-              "}",
-              "",
-              "function buildResponseV2(type='good') {",
-              "    ",
-              "    const allBlocks = [",
-              "        getResultHeaderBlock(type),",
-              "        {",
-              "\t\t\t\"type\": \"divider\"",
-              "\t\t},",
-              "        getResultBodyBlock(type)",
-              "    ]",
-              "    return {",
-              "        blocks: allBlocks",
-              "    };",
-              "}",
-              "",
-              "// ======================================================== //",
-              "",
-              "function buildAttachment(title, attachmentValues, short) {",
-              "    const body = {",
-              "        \"title\": title,",
-              "        \"value\": attachmentValues[title],",
-              "        \"short\": short",
-              "    };",
-              "    return body;",
-              "}",
-              "",
-              "function getAttachmentsArray(type='good') {",
-              "    const color = type; // Same as type",
-              "    const attachments = [{",
-              "        color: color,",
-              "        fields: [",
-              "            buildAttachment('Status', MOCK_RESPONSE_VALUES[type], true),",
-              "            buildAttachment('Tests Passed', MOCK_RESPONSE_VALUES[type], true),",
-              "            buildAttachment('Total Response Time', MOCK_RESPONSE_VALUES[type], true),",
-              "            buildAttachment('Total Requests', MOCK_RESPONSE_VALUES[type], true),",
-              "            buildAttachment('Errors', MOCK_RESPONSE_VALUES[type], true),",
-              "            buildAttachment('Warnings', MOCK_RESPONSE_VALUES[type], true),",
-              "        ]",
-              "    }].concat(getFailedTests(type));",
-              "    return attachments;",
-              "}",
-              "",
-              "function buildResponseV1(type='good') {",
-              "    ",
-              "    const responseBody = Object.assign({",
-              "        text: MOCK_RESPONSE_VALUES[type].messagev1,",
-              "        attachments: getAttachmentsArray(type),",
-              "        username: \"Postman Monitors\",",
-              "        icon_url: \"https://static.getpostman.com/assets/logo-glyph.png\"",
-              "    });",
-              "    return responseBody;",
-              "}",
-              "",
-              "// ======================================================== //",
-              "",
-              "function getResponseByVersion(version, type='good') {",
-              "    if (version === 'v1') {",
-              "        return buildResponseV1(type);",
-              "    } else if (version === 'v2') {",
-              "        return buildResponseV2(type);",
-              "    }",
-              "    return '';",
-              "}",
-              "",
-              "const [version, messageType] = webhookRequestData.text.split('_');",
-              "console.log(version, messageType);",
-              "const response = JSON.stringify(getResponseByVersion(version, messageType));",
-              "pm.variables.set('responseBody', response);",
-              "pm.variables.set('responseUrl', webhookRequestData.response_url)",
-              "",
-              "console.log(response);",
+              "// webhookRequestData contains the data sent to your webhook.",
+              "console.log(webhookRequestData);",
+              "pm.variables.set('response_url', webhookRequestData.response_url)",
               ""
             ],
             "type": "text/javascript"
           }
         }
       ],
-      "_postman_id": "ffe8eb23-2c7b-4e89-b7f8-7e1c27e370e0",
+      "_postman_id": "e2a19463-f9b1-4e64-b3fa-38639a4c6953",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -161,14 +34,61 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{{responseBody}}",
+          "raw": "{\n    \"text\": \"Hello\"\n}",
           "options": {
             "raw": {
               "language": "json"
             }
           }
         },
-        "url": "{{responseUrl}}"
+        "url": "{{response_url}}"
+      },
+      "response": []
+    },
+    {
+      "name": "second request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "de6bd963-440e-4974-b7e4-c316daa24c0d",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "11710fdb-682d-4618-92d7-693c71d6bb24",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{url}}/get"
+      },
+      "response": []
+    },
+    {
+      "name": "Send to Slack",
+      "_postman_id": "8838eac6-97c2-4a32-aa03-755a47679166",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\": \"{{response}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://hooks.slack.com/services/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"
       },
       "response": []
     }
