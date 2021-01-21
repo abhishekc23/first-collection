@@ -1,20 +1,96 @@
 {
   "info": {
-    "_postman_id": "9e566088-29b3-4a0c-849e-2f8d377c1ce4",
-    "name": "Demo collection",
+    "_postman_id": "dd8d65c0-2e91-4cda-b1f5-3f965315c695",
+    "name": "Google OAuth2.0",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
     {
-      "name": "New Request",
-      "_postman_id": "85178a4c-ae3c-4be5-ada9-1bc9c48aeca1",
+      "name": "OAuth clientId and clientsecret",
+      "_postman_id": "21c00f51-5919-43e2-a490-27ef319edc92",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
       "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": {
+            "grant_type": "authorization_code",
+            "password": "",
+            "username": "H",
+            "tokenName": "Google OAuth pstmn",
+            "scope": "https://www.googleapis.com/auth/dialogflow",
+            "state": "",
+            "clientSecret": "{{gclient_secret}}",
+            "authUrl": "https://accounts.google.com/o/oauth2/auth",
+            "useBrowser": true,
+            "accessTokenUrl": "https://oauth2.googleapis.com/token",
+            "clientId": "{{gclient_id}}",
+            "addTokenTo": "header"
+          }
+        },
         "method": "GET",
         "header": [],
         "url": null
+      },
+      "response": []
+    },
+    {
+      "name": "https://oauth2.googleapis.com/token?client_id={{gclient_id}}&client_secret={{gclient_secret}}&refresh_token={{refresh_token}}&grant_type=refresh_token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "17111401-5363-4da3-a2c6-199bc9fb50de",
+            "exec": [
+              "let res = pm.response.json();",
+              "",
+              "console.log(JSON.stringify(res));",
+              "pm.environment.set('refresh_token', res.refresh_token);",
+              "pm.environment.set('access_token', res.access_token);",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "e89ae91b-fef2-452d-8a16-d0a76e63486e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://oauth2.googleapis.com/token?client_id={{gclient_id}}&client_secret={{gclient_secret}}&refresh_token={{refresh_token}}&grant_type=refresh_token",
+          "protocol": "https",
+          "host": [
+            "oauth2",
+            "googleapis",
+            "com"
+          ],
+          "path": [
+            "token"
+          ],
+          "query": [
+            {
+              "key": "client_id",
+              "value": "{{gclient_id}}"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{gclient_secret}}"
+            },
+            {
+              "key": "refresh_token",
+              "value": "{{refresh_token}}"
+            },
+            {
+              "key": "grant_type",
+              "value": "refresh_token"
+            }
+          ]
+        }
       },
       "response": []
     }
