@@ -1,56 +1,48 @@
 {
   "info": {
-    "_postman_id": "de3133cf-c32e-4cdf-b1fc-57d559c4dfa0",
-    "name": "Test Collection",
+    "_postman_id": "9b13b9d5-e363-41a5-aab6-1330a0ca364b",
+    "name": "Integration Test",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
     {
-      "name": "Test Folder",
-      "item": [],
-      "_postman_id": "79e6e107-1945-4d9f-8d26-4d1c8ea486e7"
-    },
-    {
-      "name": "Test Folder 2",
-      "item": [],
-      "_postman_id": "f57252dc-84f7-430d-b752-801e08e79308"
-    },
-    {
-      "name": "Test Request",
-      "_postman_id": "c88286a0-06e6-4569-83aa-0af984028364",
+      "name": "Legacy GET all",
+      "_postman_id": "9161ba16-a84b-4cff-9494-bcd33f355216",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
       "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "password": "V3lKguEeAsmK9y93mvX47twwdmWxKYYavfLGHPqBnVkN4RqhvW0x8FN88Dy8RarPFJmuG5L7tkHEPLKzcCKutMyub3v79MX93MwuxP4ty1wByjHnel3ygF8dRMy98qqeov4sgT3AFw1yh5FeNhdjGOKICrLh51XyXjFPyf7ebcmLVifveKb5ku0FtBF8aV23tr0VVYY16AR4JTUjrjeRZbgKpvAG9TdPr3x1dNLr3FEtcCEYTmxzj0xaTNYQPrP0hXA092c1iCdjM0zAvhmF8UDwYBYPjn91aR3Gz81kyvvcdg4rtZtwFVcWtRGWbJAoNzyd2wQPaOWKaKRSypc2aXuDB6IX8ZrGaXDlRJEoLMtUkmI4wyuCG0mcB3GFsfrFpdIbhmlHDVtiLdaXDQkqLhnjSPObs83m1HVK3KKA2IWVr2tBN288SX1R1Se9bvhL93dRMoThjY1LNazPVsijs3gUYmFF6mAbdvGsinYvq4pNygFq1kmgrOrckaaFz8ju",
+            "username": "jenLIHZc6lUPo3pGyOUjItcUQEJj9um9ZIcfPBaShL6IEtpbt4Z4hWg0DJlKYBzDSivMz8nmWuT510eb82qbIWZ0wlyIi1WXE3mgahPnfTIm5xb3Yz1ZfYnsTE4cbGGXcONQ8qHBfPYpwJuEixkuzlALtKklSNVXZO5xqAdQlR0ijFVkSUwMp8Oty4sRuwUq1JBsEWDaSWxLOFOQHZDL8jOJwMEZnZRWNLuqW80yfSnT51muRjR3ruiPhlvHGU21W2K8DwKs45kdT1uVV9lP8fMhWnJb8HVU67w2vUCjJ5rEDepriLITQCuQu1Lzb9auu95gMf8Roe03Ks9wmMFu2kWex0i7b7ejbZxJDI8iqaBw01fBG7r3UAHh4A5OHqdwNiNRreAlKAxqSYGmNohxJImtaAHcBZTSJTlFxHDmHExYGjkPYIkl9TYtNPPlRtd5pIYE4ny0UreWLmQSEVNyE8kx12z159zYg0tLLMaFP1mYeP0brSKQEbBddbmtKnx5\n"
+          }
+        },
         "method": "GET",
-        "header": [],
-        "url": null
-      },
-      "response": []
-    },
-    {
-      "name": "Test Request 2",
-      "_postman_id": "0da51f00-6b72-4589-9bac-0e014fbfd683",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": null
-      },
-      "response": []
-    },
-    {
-      "name": "New Request",
-      "_postman_id": "9fc2f6a6-bcce-4be8-93b7-7e3ba7097705",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": null
+        "header": [
+          {
+            "key": "access-token",
+            "value": "c873be2d2c6b2ff693fcf6475e72ab8afde9033ee84beb02778a5b342c3abacb7c42b688b63506cb7e3ace2b7adbaf4fb75cd4741c92a68c13ac8e412ad7fc9b",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/x/integration?user_id=575358",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "x",
+            "integration"
+          ],
+          "query": [
+            {
+              "key": "user_id",
+              "value": "575358"
+            }
+          ]
+        }
       },
       "response": []
     }
