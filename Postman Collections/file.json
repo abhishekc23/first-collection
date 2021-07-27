@@ -1,30 +1,8 @@
 {
   "info": {
-    "_postman_id": "83e3a4d3-04de-416e-80e7-7e026a3c957d",
-    "name": "console test",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "_postman_id": "50bb96fa-c62e-4435-8315-d86be43e8e70",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
-  "item": [
-    {
-      "name": "New Request",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "postman-echo.com/get",
-          "host": [
-            "postman-echo",
-            "com"
-          ],
-          "path": [
-            "get"
-          ]
-        }
-      },
-      "response": []
-    }
-  ]
+  "item": []
 }
